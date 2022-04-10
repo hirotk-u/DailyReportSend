@@ -1,0 +1,31 @@
+<script>
+  //========================
+  //check
+  //========================
+  let check = () => {
+    if(window.confirm("送信してよろしいですか？")){
+      return true;
+
+    }else{
+      window.alert("キャンセルされました");
+      return false;
+
+    }
+  }
+
+  //========================
+  //sendDailyReportMail
+  //========================
+  let sendDailyReportMail = () => {
+    google.script.run.withSuccessHandler(callback).sendDailyReportMailDetail();
+  }
+
+  //========================
+  //callback
+  //========================
+  let callback = () => {
+    alert("メール送信完了！");
+    
+  };
+
+</script>

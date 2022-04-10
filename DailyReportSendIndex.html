@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <title>DailyReportSend</title>
+
+    <!-- CSS読み込み -->
+    <?!= HtmlService.createHtmlOutputFromFile('DailyReportSendCss').getContent(); ?>
+
+    <!-- JS読み込み -->
+    <?!= HtmlService.createHtmlOutputFromFile('DailyReportSendJs').getContent(); ?>
+  </head>
+  <body>
+    <!-- デプロイ時のURL指定 -->
+    <form action="https://script.google.com/macros/s/xxxxx/exec" method="post" onSubmit="return check()">
+
+      <h2>DailyReportSend</h2>
+
+      <!-- 開始・終了時刻 -->
+      <div>
+          <label for="startTime">開始時刻：</label>
+          <input type="text" name="startTime" value="09:00" maxlength="5">
+      </div>
+      <div>
+          <label for="endTime">終了時刻：</label>
+          <input type="text" name="endTime" value="18:00" maxlength="5">
+      </div>
+      <br>
+
+      <!-- 案件名 -->
+      <div>
+          <label for="projectName">案件名：</label>
+          <input type="text" name="projectName" value="案件A">
+      </div>
+      <br>
+
+      <!-- 作業内容 -->
+      <div>
+          <label for="content">作業内容：</label>
+          <textarea name="content" cols="50" rows="6">test</textarea>
+      </div>
+      <br>
+    <div>
+      <input type="submit" value="日報メール送信">
+    </div>
+  </form>
+</body>
+</html>
